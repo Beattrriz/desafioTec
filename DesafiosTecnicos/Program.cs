@@ -1,4 +1,8 @@
-﻿class Program
+﻿using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+class Program
 {
     static void Main()
     {
@@ -50,8 +54,8 @@
     }
 
 
-     // Desafio 2
-     static void VerificarFibonacci()
+    // Desafio 2
+    static void VerificarFibonacci()
     {
         Console.Write("Digite um número: ");
         int numero = int.Parse(Console.ReadLine());
@@ -76,34 +80,57 @@
     }
 
 
-     // Desafio 3
+    // Desafio 3
+
+    public class DiaFaturamento
+    {
+        [JsonPropertyName("dia")]
+        public int Dia { get; set; }
+
+        [JsonPropertyName("valor")]
+        public double Valor { get; set; }
+    }
     static void FaturamentoDistribuidora()
     {
-        var faturamentoMensal = new List<Dictionary<string, double>>
+        try
         {
-            new Dictionary<string, double> { { "dia", 1 }, { "valor", 22174.1664 } },
-            new Dictionary<string, double> { { "dia", 2 }, { "valor", 24537.6698 } },
-            new Dictionary<string, double> { { "dia", 3 }, { "valor", 26139.6134 } },
-            new Dictionary<string, double> { { "dia", 4 }, { "valor", 0.0 } },
-            new Dictionary<string, double> { { "dia", 5 }, { "valor", 0.0 } },
-            new Dictionary<string, double> { { "dia", 6 }, { "valor", 26742.6612 } },
-            new Dictionary<string, double> { { "dia", 7 }, { "valor", 0.0 } },
-            new Dictionary<string, double> { { "dia", 8 }, { "valor", 42889.2258 } },
-            new Dictionary<string, double> { { "dia", 9 }, { "valor", 46251.174 } },
-            new Dictionary<string, double> { { "dia", 10 }, { "valor", 11191.4722 } }
-        };
+            string caminhoArquivo = "arquivo/dados.json";
+            string json = File.ReadAllText(caminhoArquivo);
 
-        var valores = faturamentoMensal.Where(d => d["valor"] > 0).Select(d => d["valor"]).ToList();
+            var faturamentoMensal = JsonSerializer.Deserialize<List<DiaFaturamento>>(json);
 
-        double menorValor = valores.Min();
-        double maiorValor = valores.Max();
-        double mediaMensal = valores.Average();
+            if (faturamentoMensal != null)
+            {
+                Console.WriteLine("Dados lidos com sucesso:");
 
-        int diasAcimaMedia = valores.Count(v => v > mediaMensal);
+            }
+            else
+            {
+                Console.WriteLine("Erro ao desserializar os dados.");
+            }
 
-        Console.WriteLine($"Menor faturamento: R${menorValor:F2}");
-        Console.WriteLine($"Maior faturamento: R${maiorValor:F2}");
-        Console.WriteLine($"Dias acima da média mensal: {diasAcimaMedia}");
+            var valores = faturamentoMensal.Where(d => d.Valor > 0).Select(d => d.Valor).ToList();
+
+            if (valores.Any())
+            {
+                double menorValor = valores.Min();
+                double maiorValor = valores.Max();
+                double mediaMensal = valores.Average();
+                int diasAcimaMedia = valores.Count(v => v > mediaMensal);
+
+                Console.WriteLine($"Menor faturamento: R${menorValor:F2}");
+                Console.WriteLine($"Maior faturamento: R${maiorValor:F2}");
+                Console.WriteLine($"Dias acima da média mensal: {diasAcimaMedia}");
+            }
+            else
+            {
+                Console.WriteLine("Não há faturamento válido para calcular.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao processar o arquivo: {ex.Message}");
+        }
     }
 
 
@@ -129,7 +156,7 @@
         }
     }
 
-     // Desafio 5
+    // Desafio 5
     static void InverterString()
     {
         Console.Write("Digite uma string: ");
