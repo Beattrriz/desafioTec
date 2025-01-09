@@ -1,0 +1,15 @@
+D:\DotNet\Teste\DesafiosTecnicos\bin\Debug\net8.0\DesafiosTecnicos.exe
+D:\DotNet\Teste\DesafiosTecnicos\bin\Debug\net8.0\DesafiosTecnicos.deps.json
+D:\DotNet\Teste\DesafiosTecnicos\bin\Debug\net8.0\DesafiosTecnicos.runtimeconfig.json
+D:\DotNet\Teste\DesafiosTecnicos\bin\Debug\net8.0\DesafiosTecnicos.dll
+D:\DotNet\Teste\DesafiosTecnicos\bin\Debug\net8.0\DesafiosTecnicos.pdb
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\DesafiosTecnicos.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\DesafiosTecnicos.AssemblyInfoInputs.cache
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\DesafiosTecnicos.AssemblyInfo.cs
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\DesafiosTecnicos.csproj.CoreCompileInputs.cache
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\DesafiosTecnicos.sourcelink.json
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\DesafiosTecnicos.dll
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\refint\DesafiosTecnicos.dll
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\DesafiosTecnicos.pdb
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\DesafiosTecnicos.genruntimeconfig.cache
+D:\DotNet\Teste\DesafiosTecnicos\obj\Debug\net8.0\ref\DesafiosTecnicos.dll
